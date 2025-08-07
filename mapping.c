@@ -6,9 +6,9 @@
 #include <time.h> 
 
 typedef struct block{
-    uint8_t *row;
-    uint8_t *column;
-    uint8_t *face;
+    uint8_t row;
+    uint8_t column;
+    uint8_t face;
     uint8_t value;
 }block_t;
 
@@ -18,15 +18,15 @@ block_t mapvalue[5][3][3];
 
 
 
-void generate_random_coords(block_t *b, uint8_t *r, uint8_t *c, uint8_t *f) {
-    *f = rand() % 5;
-    *r = rand() % 3;
-    *c = rand() % 3;
+void generate_random_coords(void) {
 
-    b->row = r;
-    b->column = c;
-    b->face = f;
-    b->value = 10;
+    block_t b;
+
+    b.face = rand() % 5;
+    b.row = rand() % 3;
+    b.column = rand() % 3;
+
+    b.value = 10;
 }
 
 void main(void){
@@ -34,18 +34,18 @@ void main(void){
 
     block_t bomb;
 
-    uint8_t row, col, face;
+    uint8_t row;
+    uint8_t col;
+    uint8_t face;
 
 
     for(i = 0; i<8;i++){
-        generate_random_coords(&bomb, &row, &col, &face);
+        generate_random_coords(void);
+        row = bomb.row;
+        col = bomb.column;
+        face = bomb.face;
 
-
-        uint8_t r = *bomb.row;
-        uint8_t c = *bomb.column;
-        uint8_t f = *bomb.face;
-
-        mapvalue[face][row][col] = bomb;
+        mapvalue[bomb.face][bomb.row][bomb.column] = bomb;
 
     }
 
