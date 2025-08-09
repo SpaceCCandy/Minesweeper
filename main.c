@@ -11,7 +11,7 @@ void main(void){
         col = bomb.column;
         face = bomb.face;
 
-        mapvalue[bomb.face][bomb.row][bomb.colmumn] = bomb;
+        mapvalue[face][row][col];
 
     }
 
