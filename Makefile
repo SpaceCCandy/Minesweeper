@@ -16,8 +16,13 @@ all: main.elf
 clean:
 	@rm -rvf *.d *.elf *.o
 
-main.elf: main.o 
+main.elf: main.o ws2812b.o
 	$(CC) $(CFLAGS) -o $@ $^
+
+%.o: %.S
+    $(CC) $(CFLAGS) -MM -MF $*.d $<
+    $(CC) $(CFLAGS) -c $<
+
 
 %.o: %.c
 	$(CC) $(CFLAGS) -MM -MF $*.d $<

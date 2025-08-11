@@ -21,11 +21,11 @@ void main(void)
 
     while(True) {
         // generate pattern to display
-        for (size_t i = 0; i < ROWS; i++)
-            for (size_t f = 0; f < FACES; f++)
+        for (size_t f = 0; f < FACES; f++)
+            for (size_t i = 0; i < ROWS; i++)
                 for (size_t j = 0; j < COLUMNS; j++)
                     for (size_t k = 0; k < WS2812B_COLOR_TOTAL; k++)
-                        buffer.display[i][j][f][k] = mapRGB[i][f][j][k];
+                        buffer.display[f][i][j][k] = mapRGB[i][f][j][k];
 
         *PIXELS_DDR  |=   1 << PIXELS_BIT;
         *PIXELS_PORT &= ~(1 << PIXELS_BIT);
