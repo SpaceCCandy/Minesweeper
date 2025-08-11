@@ -9,7 +9,7 @@ volatile uint8_t *digital_pin_to_port(uint8_t pin){
     else if (pin <= 13){
         return &PORTB;
     }
-    else if (pin <= 19){
+    else if (pin <= 19){ 
         return &PORTC;
     }
     else {
