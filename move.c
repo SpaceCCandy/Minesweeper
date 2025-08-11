@@ -25,7 +25,7 @@ void dir_check(block_t *pos, uint8_t direction, uint8_t up_block, uint8_t left_b
         pos->row = 1;
         pos->face = down_block;
     }
-
+    
 }
 
 bool pixel_move_pos(block_t *pos, uint8_t direction)
@@ -78,4 +78,5 @@ bool pixel_move_pos(block_t *pos, uint8_t direction)
                 return false;
                 
         }
+    }
 }
