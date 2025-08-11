@@ -1,6 +1,7 @@
 #include "main.h"
 
-void generate_random_coords(void) {
+block_t generate_random_coords(uint8_t val) 
+{
 
     block_t b;
 
@@ -8,5 +9,7 @@ void generate_random_coords(void) {
     b.row = rand() % 3;
     b.column = rand() % 3;
 
-    b.value = 10;
+    b.value = val;
+
+    return b;
 }
