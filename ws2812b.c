@@ -13,10 +13,11 @@
 #include "ws2812b.h"
 
 #define ROWS    3
-#define COLUMNS 15
+#define COLUMNS 3
+#define FACES 5
 #define PIXELS  (ROWS * COLUMNS)
 
-typedef uint8_t display_buffer_t[ROWS][COLUMNS][WS2812B_COLOR_TOTAL];
+typedef uint8_t display_buffer_t[ROWS][COLUMNS][FACES][WS2812B_COLOR_TOTAL];
 
 static volatile uint8_t * const PIXELS_DDR  = &DDRD;
 static volatile uint8_t * const PIXELS_PORT = &PORTD;
