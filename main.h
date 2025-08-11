@@ -16,7 +16,6 @@
 typedef enum
 {
   TYPE_SELECT, // White
-  TYPE_BOMB = 0xFE0000,   // Red
   TYPE_ONE = 0x4363D8,    // Blue
   TYPE_TWO = 0x3CB44B,    // Green
   TYPE_THREE = 0xFFCA00,  // Yellow
@@ -25,6 +24,7 @@ typedef enum
   TYPE_SIX = 0x46F0F0,    // Cyan
   TYPE_SEVEN = 0x5F530F,  // Purple
   TYPE_EIGHT = 0x5F530F   // Brown
+  TYPE_BOMB = 0xFE0000,   // Red
 } ItemType;
 
 const uint8_t [10][3] = { //GRB
