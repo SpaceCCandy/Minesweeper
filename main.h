@@ -28,16 +28,16 @@ typedef enum
 } ItemType;
 
 const uint8_t item_Colors[10][3] = {
-    {255, 255, 255}, // TYPE_SELECT - White
-    {0, 254, 0},     // TYPE_BOMB   - Red
-    {99, 67, 216},   // TYPE_ONE    - Blue
-    {180, 60, 75},   // TYPE_TWO    - Green
-    {202, 255, 0},   // TYPE_THREE  - Yellow
-    {50, 240, 230},  // TYPE_FOUR   - Pink
-    {130, 245, 49},  // TYPE_FIVE   - Orange
-    {240, 70, 240},  // TYPE_SIX    - Cyan
-    {83, 95, 15},    // TYPE_SEVEN  - Purple
-    {83, 95, 15}     // TYPE_EIGHT  - Brown
+    {255, 255, 255}, // TYPE_SELECT
+    {0, 254, 0},     // TYPE_BOMB
+    {99, 67, 216},   // TYPE_ONE
+    {180, 60, 75},   // TYPE_TWO
+    {202, 255, 0},   // TYPE_THREE
+    {50, 240, 230},  // TYPE_FOUR
+    {130, 245, 49},  // TYPE_FIVE
+    {240, 70, 240},  // TYPE_SIX
+    {83, 95, 15},    // TYPE_SEVEN
+    {83, 95, 15}     // TYPE_EIGHT
 };
 
 typedef enum
