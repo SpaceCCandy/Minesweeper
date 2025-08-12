@@ -7,7 +7,6 @@
 #include <stdlib.h>
 #include <util/twi.h>
 #include <avr/interrupt.h>
-//#include <iostream>
 #include <stdio.h>
 #include <time.h>
 
@@ -59,7 +58,7 @@ typedef struct block
   uint8_t value;
 } block_t;
 
-block_t bombLocations[7];
+block_t bombLocations[8];
 block_t selector; //Current "cursor" position
 
 block_t mapRGB[5][3][3][3];
