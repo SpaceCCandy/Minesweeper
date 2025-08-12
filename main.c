@@ -4,8 +4,6 @@ void main(void)
 {
     srand(time(NULL));
 
-    block_t selector; //Current "cursor" position
-
     //Bombs are mapped and saved.
     for(int i = 0; i < 8;i++)
     {

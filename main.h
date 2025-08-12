@@ -49,6 +49,8 @@ typedef struct block
     uint8_t value;
 }block_t;
 
+block_t selector; //Current "cursor" position
+
 block_t bombLocations[7];
 
 block_t mapRGB[5][3][3][3];     

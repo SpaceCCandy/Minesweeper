@@ -13,3 +13,8 @@ block_t generate_random_coords(uint8_t val)
 
     return b;
 }
+
+uint8_t code_to_color(uint8 val)
+{
+    
+}
