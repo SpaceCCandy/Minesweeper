@@ -26,6 +26,9 @@ typedef enum ws2812b_color {
     WS2812B_COLOR_TOTAL,
 } ws2812b_color_t;
 
+typedef uint8_t display_buffer_t[FACES][ROWS][COLUMNS][WS2812B_COLOR_TOTAL];
+typedef uint8_t ws2812b_buffer_t[WS2812B_COLOR_TOTAL];
+
 static union {
     display_buffer_t display;
     ws2812b_buffer_t ws2812b[PIXELS];
@@ -35,13 +38,12 @@ static_assert(
     sizeof(buffer.display) == sizeof(buffer.ws2812b),
     "display and ws2812b buffers must match in size");
 
-typedef uint8_t display_buffer_t[FACES][ROWS][COLUMNS][WS2812B_COLOR_TOTAL];
+
 
 static volatile uint8_t * const PIXELS_DDR  = &DDRD;
 static volatile uint8_t * const PIXELS_PORT = &PORTD;
 static const uint8_t            PIXELS_BIT  = PD0;
 
-typedef uint8_t ws2812b_buffer_t[WS2812B_COLOR_TOTAL];
 
 void ws2812b_tx(
     volatile uint8_t * const port,

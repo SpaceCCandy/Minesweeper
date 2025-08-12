@@ -7,8 +7,12 @@
 #include <stdlib.h>
 #include <util/twi.h>
 #include <avr/interrupt.h>
+<<<<<<< HEAD
 #include <iostream>
 #include <stdio.h>
+=======
+// #include <iostream>
+>>>>>>> d119d16dc30ab7f81ddd59845d96a27c6aaa501b
 #include <time.h>
 
 #define ERROR_COLOR 0x000000
@@ -26,11 +30,10 @@ typedef enum
   TYPE_FIVE,   // Orange
   TYPE_SIX,    // Cyan
   TYPE_SEVEN,  // Purple
-  TYPE_EIGHT   // Brown
-  TYPE_BOMB,   // Red
+  TYPE_EIGHT,   // Brown
 } ItemType;
 
-const uint8_t item_Colors[10][3] = {
+const uint8_t item_Colors[11][3] = {
     {255, 255, 255}, // TYPE_SELECT
     {0, 0, 0}, //TYPE_BLANK
     {99, 67, 216},   // TYPE_ONE
@@ -61,6 +64,7 @@ typedef struct block
 } block_t;
 
 block_t bombLocations[7];
+block_t selector; //Current "cursor" position
 
 block_t mapRGB[5][3][3][3];
 block_t mapvalue[5][3][3];
@@ -69,7 +73,7 @@ uint8_t row;
 uint8_t col;
 uint8_t face;
 
-void generate_random_coords(void);
-bool pixel_move_pos(uint8_t row, uint8_t *const column, uint8_t *const face, uint8_t *const direction);
-void dir_check(uint8_t direction, uint8_t up_block, uint8_t left_block, uint8_t right_block, uint8_t down_block);
+block_t generate_random_coords(uint8_t value);
+bool pixel_move_pos(block_t *pos, uint8_t direction);
+void dir_check(block_t *pos,uint8_t direction, uint8_t up_block, uint8_t left_block, uint8_t right_block, uint8_t down_block);
 void bomb_setn(block_t bomb);
