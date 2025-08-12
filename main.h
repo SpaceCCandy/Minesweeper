@@ -7,12 +7,8 @@
 #include <stdlib.h>
 #include <util/twi.h>
 #include <avr/interrupt.h>
-<<<<<<< HEAD
-#include <iostream>
+//#include <iostream>
 #include <stdio.h>
-=======
-// #include <iostream>
->>>>>>> d119d16dc30ab7f81ddd59845d96a27c6aaa501b
 #include <time.h>
 
 #define ERROR_COLOR 0x000000
