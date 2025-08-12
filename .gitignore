@@ -1,0 +1,15 @@
+
+*.o
+*.elf
+*.hex
+*.bin
+*.map
+*.lst
+*.d
+
+
+.vscode/
+*.swp
+
+
+.DS_Store
