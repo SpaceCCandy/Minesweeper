@@ -1,13 +1,13 @@
 CC      = avr-gcc
 CFLAGS += \
     -DF_CPU=16000000ULL \
-    -O0 \
+    -O1 \
     -Wall \
     -Wextra \
     -Wpedantic \
     -g \
     -mmcu=atmega328p \
-    -std=gnu17 \
+    -std=gnu11 \
 
 .PHONY: all
 all: main.elf
@@ -20,8 +20,8 @@ main.elf: main.o ws2812b.o
 	$(CC) $(CFLAGS) -o $@ $^
 
 %.o: %.S
-    $(CC) $(CFLAGS) -MM -MF $*.d $<
-    $(CC) $(CFLAGS) -c $<
+	$(CC) $(CFLAGS) -MM -MF $*.d $<
+	$(CC) $(CFLAGS) -c $<
 
 
 %.o: %.c

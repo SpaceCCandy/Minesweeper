@@ -8,6 +8,7 @@
 #include <util/twi.h>
 #include <avr/interrupt.h>
 #include <iostream>
+#include <stdio.h>
 #include <time.h>
 
 #define ERROR_COLOR 0x000000
