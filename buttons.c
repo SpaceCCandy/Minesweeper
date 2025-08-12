@@ -33,10 +33,14 @@ int main(){
             pixel_move_pos(&selector, DIR_DOWN);
         }
         else if(digital_read(BTN_MINE, &pin_state)){
-            mapRGB[selector->face][selector->row][selector->column][] = mapvalue[selector->face][selector->row][selector->column]
+            mapRGB[selector->face][selector->row][selector->column][] = item_Colors[mapvalue[selector->face][selector->row][selector->column]];
+            if (mapvalue[selector->face][selector->row][selector->column] == 10)
+            {
+                return false;
+            }
         }
         else if (digital_read(BTN_FLAG, &pin_state)){
-            
+            mapRGB[selector->face][selector->row][selector->column][] = item_Colors[0];
         }
         
     }
