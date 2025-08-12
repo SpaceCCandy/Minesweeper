@@ -17,7 +17,6 @@ typedef enum
 {
   TYPE_SELECT, // White
   TYPE_BLANK, // Black
-  TYPE_BOMB,   // Red
   TYPE_ONE,    // Blue
   TYPE_TWO,    // Green
   TYPE_THREE,  // Yellow
@@ -26,6 +25,7 @@ typedef enum
   TYPE_SIX,    // Cyan
   TYPE_SEVEN,  // Purple
   TYPE_EIGHT,   // Brown
+  TYPE_BOMB,   // Red
 } ItemType;
 
 const uint8_t item_Colors[11][3] = {
@@ -61,7 +61,7 @@ typedef struct block
 block_t bombLocations[8];
 block_t selector; //Current "cursor" position
 
-block_t mapRGB[5][3][3][3];
+uint8_t mapRGB[5][3][3][3];
 block_t mapvalue[5][3][3];
 
 uint8_t row;

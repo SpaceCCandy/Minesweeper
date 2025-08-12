@@ -8,12 +8,12 @@
 #define BTN_FLAG 7
 
 int main(){
-    digital_pin_mode(2, INPUT);
-    digital_pin_mode(3, INPUT);
-    digital_pin_mode(4, INPUT);
-    digital_pin_mode(5, INPUT);
-    digital_pin_mode(6, INPUT);
-    digital_pin_mode(7, INPUT);
+    digital_pin_mode(BTN_RIGHT, INPUT);
+    digital_pin_mode(BTN_LEFT, INPUT);
+    digital_pin_mode(BTN_UP, INPUT);
+    digital_pin_mode(BTN_DOWN, INPUT);
+    digital_pin_mode(BTN_MINE, INPUT);
+    digital_pin_mode(BTN_FLAG, INPUT);
 
     bool pin_state;
 
@@ -33,14 +33,14 @@ int main(){
             pixel_move_pos(&selector, DIR_DOWN);
         }
         else if(digital_read(BTN_MINE, &pin_state)){
-            mapRGB[selector->face][selector->row][selector->column][] = item_Colors[mapvalue[selector->face][selector->row][selector->column]];
-            if (mapvalue[selector->face][selector->row][selector->column] == 10)
+            mapRGB[selector.face][selector.row][selector.column] = item_Colors[mapvalue[selector.face][selector.row][selector.column].value];
+            if (mapvalue[selector.face][selector.row][selector.column] == 10)
             {
                 return false;
             }
         }
         else if (digital_read(BTN_FLAG, &pin_state)){
-            mapRGB[selector->face][selector->row][selector->column][] = item_Colors[0];
+            mapRGB[selector.face][selector.row][selector.column]git = item_Colors[0];
         }
         
     }
