@@ -68,7 +68,19 @@ uint8_t row;
 uint8_t col;
 uint8_t face;
 
+uint32_t MICROSECONDS_PER_TIMER0_OVERFLOW = clockCyclesToUS(256, 64);
+uint16_t FRACT_REMAINDER = (MICROSECONDS_PER_TIMER0_OVERFLOW % 1000);
+uint16_t FRACT_MAX = 1000;
+uint16_t TOTAL_MILLIS = 0;
+
+unsigned long millisec = 0;
+unsigned long extra_us = 0;
+
+
 block_t generate_random_coords(uint8_t value);
 bool pixel_move_pos(block_t *pos, uint8_t direction);
 void dir_check(block_t *pos,uint8_t direction, uint8_t up_block, uint8_t left_block, uint8_t right_block, uint8_t down_block);
 void bomb_setn(block_t bomb);
+uint32_t clockCyclesToUS(uint32_t cycle, uint8_t pre_scale);
+unsigned long millis();
+
