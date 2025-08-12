@@ -68,6 +68,6 @@ uint8_t col;
 uint8_t face;
 
 block_t generate_random_coords(uint8_t value);
-bool pixel_move_pos(uint8_t row, uint8_t *const column, uint8_t *const face, uint8_t *const direction);
-void dir_check(uint8_t direction, uint8_t up_block, uint8_t left_block, uint8_t right_block, uint8_t down_block);
+bool pixel_move_pos(block_t *pos, uint8_t direction);
+void dir_check(block_t *pos,uint8_t direction, uint8_t up_block, uint8_t left_block, uint8_t right_block, uint8_t down_block);
 void bomb_setn(block_t bomb);
