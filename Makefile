@@ -7,7 +7,7 @@ CFLAGS += \
     -Wpedantic \
     -g \
     -mmcu=atmega328p \
-    -std=gnu17 \
+    -std=gnu17
 
 .PHONY: all
 all: main.elf
@@ -16,13 +16,12 @@ all: main.elf
 clean:
 	@rm -rvf *.d *.elf *.o
 
-main.elf: main.o ws2812b.o
+main.elf: main.o mapping.o move.o checkDig.o
 	$(CC) $(CFLAGS) -o $@ $^
 
 %.o: %.S
-    $(CC) $(CFLAGS) -MM -MF $*.d $<
-    $(CC) $(CFLAGS) -c $<
-
+	$(CC) $(CFLAGS) -MM -MF $*.d $<
+	$(CC) $(CFLAGS) -c $<
 
 %.o: %.c
 	$(CC) $(CFLAGS) -MM -MF $*.d $<

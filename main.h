@@ -7,7 +7,7 @@
 #include <stdlib.h>
 #include <util/twi.h>
 #include <avr/interrupt.h>
-#include <iostream>
+// #include <iostream>
 #include <time.h>
 
 #define ERROR_COLOR 0x000000
@@ -25,11 +25,10 @@ typedef enum
   TYPE_FIVE,   // Orange
   TYPE_SIX,    // Cyan
   TYPE_SEVEN,  // Purple
-  TYPE_EIGHT   // Brown
-  TYPE_BOMB,   // Red
+  TYPE_EIGHT,   // Brown
 } ItemType;
 
-const uint8_t item_Colors[10][3] = {
+const uint8_t item_Colors[11][3] = {
     {255, 255, 255}, // TYPE_SELECT
     {0, 0, 0}, //TYPE_BLANK
     {99, 67, 216},   // TYPE_ONE
@@ -68,7 +67,7 @@ uint8_t row;
 uint8_t col;
 uint8_t face;
 
-void generate_random_coords(void);
+block_t generate_random_coords(uint8_t value);
 bool pixel_move_pos(uint8_t row, uint8_t *const column, uint8_t *const face, uint8_t *const direction);
 void dir_check(uint8_t direction, uint8_t up_block, uint8_t left_block, uint8_t right_block, uint8_t down_block);
 void bomb_setn(block_t bomb);
