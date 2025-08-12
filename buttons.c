@@ -32,18 +32,24 @@ int main(){
         else if (digital_read(BTN_DOWN, &pin_state)){
             pixel_move_pos(&selector, DIR_DOWN);
         }
-        else if(digital_read(BTN_MINE, &pin_state)){
-            mapRGB[selector.face][selector.row][selector.column] = item_Colors[mapvalue[selector.face][selector.row][selector.column].value];
-            if (mapvalue[selector.face][selector.row][selector.column] == 10)
-            {
-                return false;
+        else if (digital_read(BTN_MINE, &pin_state)) {
+            uint8_t val = mapvalue[selector.face][selector.row][selector.column].value;
+        
+            for (int c = 0; c < 3; c++) {
+                mapRGB[selector.face][selector.row][selector.column][c].value =
+                    item_Colors[val][c];
+            }
+
+            if (val == TYPE_BOMB) {
+                
+                return 1; 
             }
         }
-        else if (digital_read(BTN_FLAG, &pin_state)){
-            mapRGB[selector.face][selector.row][selector.column]git = item_Colors[0];
+        else if (digital_read(BTN_FLAG, &pin_state)) {
+            for (int c = 0; c < 3; c++) {
+                mapRGB[selector.face][selector.row][selector.column][c].value =
+                    item_Colors[TYPE_SELECT][c];
+            }
         }
-        
     }
-
-
 }
