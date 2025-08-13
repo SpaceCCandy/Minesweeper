@@ -1,10 +1,11 @@
 #include "main.h"
 #include "ws2812b.h"
 
-static uint32_t time;
+static uint32_t time_status;
 
 void main(void)
-{
+{   
+    //Time stuff
     TCCR0B |= (1 << CS01) | (1 << CS00);
     TIMSK0 |= (1 << TOIE0);
     sei();
@@ -24,18 +25,28 @@ void main(void)
         bomb_setn(bombLocations[i]);
     }
 
+    //While loop forever...
     while(true) {
-        // generate pattern to display
-        for ((millis() - time) > 1000) 
-        {
-            mapRGB[selector.face][selector.row][selector.column] = item_Colors[0]; //Color to white
-        }
-        else if ((millis() - time) > 2000) 
-        {
-            time = millis();
-            mapRGB[selector.face][selector.row][selector.column] = item_Colors[mapvalue[selector.face][selector.row][selector.column].value]; //Color to blank
+
+        // Displays selector every 1 second
+        if ((millis() - time_status) > 1000) 
+        {   
+            memcpy(&mapRGB[selector.face][selector.row][selector.column], 
+                &item_Colors[0], 
+                sizeof(item_Colors[0]));
+            //mapRGB[selector.face][selector.row][selector.column][i] = item_Colors[0]; //Color to white
         }
 
+        else if ((millis() - time_status) > 2000) 
+        {
+            time = millis();
+            memcpy(&mapRGB[selector.face][selector.row][selector.column], 
+                &item_Colors[mapvalue[selector.face][selector.row][selector.column].value], 
+                sizeof(item_Colors[mapvalue[selector.face][selector.row][selector.column].value]));
+            //mapRGB[selector.face][selector.row][selector.column] = item_Colors[mapvalue[selector.face][selector.row][selector.column].value]; //Color to blank
+        }
+
+        // generate pattern to display
         for (size_t f = 0; f < FACES; f++)
             for (size_t i = 0; i < ROWS; i++)
                 for (size_t j = 0; j < COLUMNS; j++)

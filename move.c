@@ -32,25 +32,25 @@ bool pixel_move_pos(block_t *pos, uint8_t direction)
 {   
     if ((direction == DIR_UP) && (pos->row != 0)) 
     {
-        pos->row = (pos->row)--;
+        pos->row = (pos->row) - 1;
         return false;
     }
 
     else if ((direction == DIR_DOWN) && (pos->row != 2)) 
     {
-        pos->row = (pos->row)++;
-        return false
+        pos->row = (pos->row) + 1;
+        return false;
     }
 
     else if ((direction == DIR_LEFT) && (pos->column != 0)) 
     {
-        pos->column = (pos->column)--;
+        pos->column = (pos->column) - 1;
         return false;
     }
 
     else if ((direction == DIR_RIGHT) && (pos->column != 2)) 
     {
-        pos->column = (pos->column)++;
+        pos->column = (pos->column) + 1;
         return false;
     }
 
