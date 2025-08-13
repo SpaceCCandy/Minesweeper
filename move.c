@@ -38,11 +38,7 @@ bool pixel_move_pos(block_t *pos, uint8_t direction)
 
     else if ((direction == DIR_DOWN) && (pos->row != 2)) 
     {
-<<<<<<< HEAD
-        pos->row = (pos->row) + 1;
-=======
         pos->row = (pos->row)++;
->>>>>>> 91aef4bd21819d2a6725362b5a5ef99f1cc95c6c
         return false;
     }
 
