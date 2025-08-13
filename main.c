@@ -33,7 +33,12 @@ ISR(TIMER0_OVF_vect) {
     millisec += TOTAL_MILLIS;
     extra_us += FRACT_REMAINDER;
 }
-static uint32_t time;
+static uint32_t time_status;
+ 
+void setBlockcolor(){
+
+}
+
 
 void main(void)
 {
@@ -61,13 +66,14 @@ void main(void)
 
     while(true) {
         // generate pattern to display
-        for ((millis() - time) > 1000) 
+        if ((millis() - time_status) > 1000) 
         {
-            mapRGB[selector.face][selector.row][selector.column] = item_Colors[0]; //Color to white
+            mapRGB[selector.face][selector.row][selector.column] = item_Colors[c]; //Color to white
+            
         }
-        else if ((millis() - time) > 2000) 
+        else if ((millis() - time_status) > 2000) 
         {
-            time = millis();
+            time_status = millis();
             mapRGB[selector.face][selector.row][selector.column] = item_Colors[mapvalue[selector.face][selector.row][selector.column].value]; //Color to blank
         }
 
