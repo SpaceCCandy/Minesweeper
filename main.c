@@ -42,7 +42,7 @@ unsigned long millis()
 	cli();
 	SREG = oldSREG;
 	return millisec;
-}
+} 
 
 
 void main(void)
