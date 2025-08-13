@@ -33,26 +33,14 @@ ISR(TIMER0_OVF_vect) {
     millisec += TOTAL_MILLIS;
     extra_us += FRACT_REMAINDER;
 
-    if (extra_us >= FRACT_MAX){
-        millisec++;
-        extra_us = 0;
-    }
-}
-
-unsigned long millis()
-{
-	unsigned long millis;
-	uint8_t oldSREG = SREG;
-	cli();
-	SREG = oldSREG;
-	return millisec;
-}
+static uint32_t time;
 
 void main(void)
 {
     TCCR0B |= (1 << CS01) | (1 << CS00);
     TIMSK0 |= (1 << TOIE0);
     sei();
+
     srand(time(NULL));
 
     uint32_t MICROSECONDS_PER_TIMER0_OVERFLOW = clockCyclesToUS(256, 64);
@@ -73,6 +61,16 @@ void main(void)
 
     while(true) {
         // generate pattern to display
+        for ((millis() - time) > 1000) 
+        {
+            mapRGB[selector.face][selector.row][selector.column] = item_Colors[0]; //Color to white
+        }
+        else if ((millis() - time) > 2000) 
+        {
+            time = millis();
+            mapRGB[selector.face][selector.row][selector.column] = item_Colors[mapvalue[selector.face][selector.row][selector.column].value]; //Color to blank
+        }
+
         for (size_t f = 0; f < FACES; f++)
             for (size_t i = 0; i < ROWS; i++)
                 for (size_t j = 0; j < COLUMNS; j++)
