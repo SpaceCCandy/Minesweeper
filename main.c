@@ -84,7 +84,7 @@ void main(void)
 
         else if ((millis() - time_status) > 2000) 
         {
-            time = millis();
+            time_status = millis();
             memcpy(&mapRGB[selector.face][selector.row][selector.column], 
                 &item_Colors[mapvalue[selector.face][selector.row][selector.column].value], 
                 sizeof(item_Colors[mapvalue[selector.face][selector.row][selector.column].value]));
