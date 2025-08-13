@@ -32,7 +32,7 @@ const uint8_t item_Colors[11][3] = {
 ISR(TIMER0_OVF_vect) {
     millisec += TOTAL_MILLIS;
     extra_us += FRACT_REMAINDER;
-
+}
 static uint32_t time;
 
 void main(void)
