@@ -35,8 +35,13 @@ ISR(TIMER0_OVF_vect) {
 }
 static uint32_t time_status;
  
-void setBlockcolor(){
-
+unsigned long millis()
+{
+	unsigned long millis;
+	uint8_t oldSREG = SREG;
+	cli();
+	SREG = oldSREG;
+	return millisec;
 }
 
 
@@ -79,7 +84,7 @@ void main(void)
 
         else if ((millis() - time_status) > 2000) 
         {
-            time = millis();
+            time_status = millis();
             memcpy(&mapRGB[selector.face][selector.row][selector.column], 
                 &item_Colors[mapvalue[selector.face][selector.row][selector.column].value], 
                 sizeof(item_Colors[mapvalue[selector.face][selector.row][selector.column].value]));

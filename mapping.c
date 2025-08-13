@@ -14,4 +14,3 @@ block_t generate_random_coords(uint8_t val)
     return b;
 }
 
-void 
