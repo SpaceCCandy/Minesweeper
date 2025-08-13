@@ -34,7 +34,7 @@ void main(void)
         // Displays selector every 1 second
         if ((millis() - time_status) > 1000) 
         {   
-            memcpy(&mapRGB[selector.face][selector.row][selector.column], 
+            memcpy (&mapRGB[selector.face][selector.row][selector.column], 
                 &item_Colors[0], 
                 sizeof(item_Colors[0]));
             //mapRGB[selector.face][selector.row][selector.column][i] = item_Colors[0]; //Color to white
@@ -42,8 +42,8 @@ void main(void)
 
         else if ((millis() - time_status) > 2000) 
         {
-            time = millis();
-            memcpy(&mapRGB[selector.face][selector.row][selector.column], 
+            time_status = millis();
+            memcpy (&mapRGB[selector.face][selector.row][selector.column], 
                 &item_Colors[mapvalue[selector.face][selector.row][selector.column].value], 
                 sizeof(item_Colors[mapvalue[selector.face][selector.row][selector.column].value]));
             //mapRGB[selector.face][selector.row][selector.column] = item_Colors[mapvalue[selector.face][selector.row][selector.column].value]; //Color to blank

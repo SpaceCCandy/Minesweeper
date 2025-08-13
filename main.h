@@ -9,6 +9,7 @@
 #include <avr/interrupt.h>
 #include <stdio.h>
 #include <time.h>
+#include <string.h>
 
 #define ERROR_COLOR 0x000000
 #define ITEM_TYPE_COUNT 10
