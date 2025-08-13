@@ -77,6 +77,7 @@ unsigned long millisec = 0;
 unsigned long extra_us = 0;
 
 
+
 block_t generate_random_coords(uint8_t value);
 bool pixel_move_pos(block_t *pos, uint8_t direction);
 void dir_check(block_t *pos,uint8_t direction, uint8_t up_block, uint8_t left_block, uint8_t right_block, uint8_t down_block);
