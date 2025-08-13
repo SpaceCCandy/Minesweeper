@@ -1,7 +1,43 @@
 #include "main.h"
 #include "ws2812b.h"
 
+<<<<<<< HEAD
 static uint32_t time_status;
+=======
+uint32_t MICROSECONDS_PER_TIMER0_OVERFLOW;
+uint16_t FRACT_REMAINDER;
+unsigned long extra_us = 0;
+unsigned long millisec = 0;
+
+uint16_t FRACT_MAX = 1000;
+uint16_t TOTAL_MILLIS = 0;
+
+uint32_t clockCyclesToUS(uint32_t cycle, uint8_t pre_scale){
+    uint16_t us;
+   return (cycle * pre_scale) / (F_CPU/ 1000000);
+}
+
+
+const uint8_t item_Colors[11][3] = {
+    {255, 255, 255}, // TYPE_SELECT
+    {0, 0, 0}, //TYPE_BLANK
+    {99, 67, 216},   // TYPE_ONE
+    {180, 60, 75},   // TYPE_TWO
+    {202, 255, 0},   // TYPE_THREE
+    {50, 240, 230},  // TYPE_FOUR
+    {130, 245, 49},  // TYPE_FIVE
+    {240, 70, 240},  // TYPE_SIX
+    {83, 95, 15},    // TYPE_SEVEN
+    {83, 95, 15},     // TYPE_EIGHT
+    {0, 254, 0},     // TYPE_BOMB
+};
+
+ISR(TIMER0_OVF_vect) {
+    millisec += TOTAL_MILLIS;
+    extra_us += FRACT_REMAINDER;
+}
+static uint32_t time;
+>>>>>>> 91aef4bd21819d2a6725362b5a5ef99f1cc95c6c
 
 void main(void)
 {   
@@ -11,6 +47,9 @@ void main(void)
     sei();
 
     srand(time(NULL));
+
+    uint32_t MICROSECONDS_PER_TIMER0_OVERFLOW = clockCyclesToUS(256, 64);
+    uint16_t FRACT_REMAINDER = (MICROSECONDS_PER_TIMER0_OVERFLOW % 1000);
 
     //Bombs are mapped and saved.
     for(int i = 0; i < 8;i++)

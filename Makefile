@@ -16,7 +16,7 @@ all: main.elf
 clean:
 	@rm -rvf *.d *.elf *.o
 
-main.elf: main.o mapping.o move.o checkDig.o
+main.elf: main.o mapping.o move.o checkDig.o ws2812b.o
 	$(CC) $(CFLAGS) -o $@ $^
 
 %.o: %.S

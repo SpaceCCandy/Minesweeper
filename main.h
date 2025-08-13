@@ -28,19 +28,7 @@ typedef enum
   TYPE_BOMB,   // Red
 } ItemType;
 
-const uint8_t item_Colors[11][3] = {
-    {255, 255, 255}, // TYPE_SELECT
-    {0, 0, 0}, //TYPE_BLANK
-    {99, 67, 216},   // TYPE_ONE
-    {180, 60, 75},   // TYPE_TWO
-    {202, 255, 0},   // TYPE_THREE
-    {50, 240, 230},  // TYPE_FOUR
-    {130, 245, 49},  // TYPE_FIVE
-    {240, 70, 240},  // TYPE_SIX
-    {83, 95, 15},    // TYPE_SEVEN
-    {83, 95, 15},     // TYPE_EIGHT
-    {0, 254, 0},     // TYPE_BOMB
-};
+extern const uint8_t item_Colors[11][3];
 
 typedef enum
 {
@@ -68,13 +56,12 @@ uint8_t row;
 uint8_t col;
 uint8_t face;
 
-uint32_t MICROSECONDS_PER_TIMER0_OVERFLOW = clockCyclesToUS(256, 64);
-uint16_t FRACT_REMAINDER = (MICROSECONDS_PER_TIMER0_OVERFLOW % 1000);
-uint16_t FRACT_MAX = 1000;
-uint16_t TOTAL_MILLIS = 0;
 
-unsigned long millisec = 0;
-unsigned long extra_us = 0;
+extern uint16_t FRACT_MAX;
+extern uint16_t TOTAL_MILLIS;
+
+extern unsigned long millisec;
+extern unsigned long extra_us;
 
 
 
