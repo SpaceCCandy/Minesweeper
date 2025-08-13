@@ -34,7 +34,7 @@ int main(){
         }
         else if (digital_read(BTN_MINE, &pin_state)) {
             uint8_t val = mapvalue[selector.face][selector.row][selector.column].value;
-
+            
             mapRGB[selector.face][selector.row][selector.column] = item_Colors[val];
             }
 
@@ -44,10 +44,5 @@ int main(){
         }
         else if (digital_read(BTN_FLAG, &pin_state)) {
                 mapRGB[selector.face][selector.row][selector.column] = item_Colors[TYPE_SELECT];
-            }
         }
-
-
-
-}
 }
