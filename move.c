@@ -39,7 +39,7 @@ bool pixel_move_pos(block_t *pos, uint8_t direction)
     else if ((direction == DIR_DOWN) && (pos->row != 2)) 
     {
         pos->row = (pos->row)++;
-        return false
+        return false;
     }
 
     else if ((direction == DIR_LEFT) && (pos->column != 0)) 
