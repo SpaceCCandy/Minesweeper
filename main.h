@@ -45,6 +45,7 @@ typedef struct block
   uint8_t column;
   uint8_t face;
   uint8_t value;
+  uint8_t status
 } block_t;
 
 block_t bombLocations[8];

@@ -1,7 +1,7 @@
 CC      = avr-gcc
 CFLAGS += \
     -DF_CPU=16000000ULL \
-    -O1 \
+    -O0 \
     -Wall \
     -Wextra \
     -Wpedantic \
